@@ -13,11 +13,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="#E6E6E6"
         android:ems="10"
         android:inputType="number"
+        android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/IPnumber4"
         app:layout_constraintStart_toEndOf="@+id/IPnumber2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/IPnumber2"
@@ -26,11 +29,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="#E6E6E6"
         android:ems="10"
         android:inputType="number"
+        android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/IPnumber3"
         app:layout_constraintStart_toEndOf="@+id/IPnumber1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/IPnumber1"
@@ -39,11 +45,14 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="#E6E6E6"
         android:ems="10"
         android:inputType="number"
+        android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/IPnumber2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/IPnumber4"
@@ -52,10 +61,56 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#E6E6E6"
         android:ems="10"
         android:inputType="number"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/IPnumber3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/bnPing"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="128dp"
+        android:backgroundTint="#E6E6E6"
+        android:text="PING"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IPnumber3" />
+
+    <Button
+        android:id="@+id/bnBuscar"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#E6E6E6"
+        android:text="Buscar Hosts"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bnPing" />
+
+    <TextView
+        android:id="@+id/txtIP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="358dp"
+        android:layout_marginBottom="128dp"
+        android:text="Mi IP"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
