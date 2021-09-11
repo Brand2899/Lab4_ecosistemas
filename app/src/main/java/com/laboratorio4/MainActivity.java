@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         txtMyIP = findViewById(R.id.txtMyIP);
 
-        bnSearch.setOnClickListener(
+        bnPing.setOnClickListener(
                 (v) -> {
                     Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(this, PingReceptionActivity.class);
+                    Intent i = new Intent(this, PingActivity.class);
                     startActivity(i);
                 }
         );
