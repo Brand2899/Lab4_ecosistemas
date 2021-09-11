@@ -45,6 +45,24 @@ public class MainActivity extends AppCompatActivity {
         txtMyIP = findViewById(R.id.txtMyIP);
         txtIP = findViewById(R.id.txtIP);
 
+        //Gracias a : https://www.geeksforgeeks.org/how-to-fix-android-os-network-on-main-thread-exception-error-in-android-studio/
+
+        Thread getIP = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    InetAddress inetAddress = InetAddress.getLocalHost();
+                    localIP = inetAddress.getHostAddress();
+                    txtIP.setText(localIP);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        getIP.start();
+
         bnPing.setOnClickListener(
                 (v) -> {
                     Intent i = new Intent(this, PingActivity.class);
