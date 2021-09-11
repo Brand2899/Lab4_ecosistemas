@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private Button bnSearch;
 
     private TextView txtMyIP;
+    private TextView txtIP;
+
+    private String localIP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         bnSearch = findViewById(R.id.bnSearch);
 
         txtMyIP = findViewById(R.id.txtMyIP);
+        txtIP = findViewById(R.id.txtIP);
 
         bnPing.setOnClickListener(
                 (v) -> {
