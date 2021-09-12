@@ -46,13 +46,55 @@ public class PingActivity extends AppCompatActivity {
                 try {
                     InetAddress inetAddress = InetAddress.getByName(recivedIP);
 
-                    if(inetAddress.isReachable(300)){
-                        txtP1.setText("Recibido");
-                    }
-                    else{
-                        txtP1.setText("Perdido");
-                    }
+                    for(int i = 0; i < 5; i++){
+                        if(inetAddress.isReachable(1000)){
+                            isReached = true;
+                        }
+                        else{
+                            isReached = false;
+                        }
 
+                        if(i == 0){
+                            if(isReached){
+                                txtP1.setText("Recibido");
+                            }
+                            else{
+                                txtP1.setText("Perdido");
+                            }
+                        }
+                        else if(i == 1){
+                            if(isReached){
+                                txtP2.setText("Recibido");
+                            }
+                            else{
+                                txtP2.setText("Perdido");
+                            }
+                        }
+                        else if(i == 2){
+                            if(isReached){
+                                txtP3.setText("Recibido");
+                            }
+                            else{
+                                txtP3.setText("Perdido");
+                            }
+                        }
+                        else if(i == 3){
+                            if(isReached){
+                                txtP4.setText("Recibido");
+                            }
+                            else{
+                                txtP4.setText("Perdido");
+                            }
+                        }
+                        else if(i == 4){
+                            if(isReached){
+                                txtP5.setText("Recibido");
+                            }
+                            else{
+                                txtP5.setText("Perdido");
+                            }
+                        }
+                    }
 
                 } catch (UnknownHostException e) {
                     e.printStackTrace();
