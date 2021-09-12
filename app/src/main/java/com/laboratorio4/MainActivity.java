@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         txtMyIP = findViewById(R.id.txtMyIP);
         txtIP = findViewById(R.id.txtIP);
 
+        String searchedIP = IPnumber1.getText().toString() + "." + IPnumber2.getText().toString()+ "." + IPnumber3.getText().toString()+ "." + IPnumber4.getText().toString();
+
 
         //Gracias a : https://www.geeksforgeeks.org/how-to-fix-android-os-network-on-main-thread-exception-error-in-android-studio/
 
@@ -75,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
                     if(!(IPnumber1.getText().toString().isEmpty() || IPnumber2.getText().toString().isEmpty() || IPnumber3.getText().toString().isEmpty() || IPnumber4.getText().toString().isEmpty())){
 
-                        String searchedIP = IPnumber1.getText().toString() + "." + IPnumber2.getText().toString()+ "." + IPnumber3.getText().toString()+ "." + IPnumber4.getText().toString();
-
                         Intent i = new Intent(this, PingActivity.class);
 
                         i.putExtra("searchedIP", searchedIP);
@@ -86,6 +86,16 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         Toast.makeText(this, "Hay espacios vacios", Toast.LENGTH_SHORT).show();
                     }
+                }
+        );
+
+        bnSearch.setOnClickListener(
+                (view) -> {
+                    Intent i = new Intent(this, HostActivity.class);
+
+                    i.putExtra("myIP", localIP);
+
+                    startActivity(i);
                 }
         );
     }
