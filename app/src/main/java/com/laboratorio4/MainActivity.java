@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtIP;
 
     private String localIP;
+    private String ipSearch;
+    private String[] ipSeparate = new String[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         txtMyIP = findViewById(R.id.txtMyIP);
         txtIP = findViewById(R.id.txtIP);
 
+
         //Gracias a : https://www.geeksforgeeks.org/how-to-fix-android-os-network-on-main-thread-exception-error-in-android-studio/
 
         Thread getIP = new Thread(new Runnable() {
@@ -54,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                     InetAddress inetAddress = InetAddress.getLocalHost();
                     localIP = inetAddress.getHostAddress();
                     txtIP.setText(localIP);
+
+                    ipSeparate = localIP.split(".");
+
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -65,8 +72,20 @@ public class MainActivity extends AppCompatActivity {
 
         bnPing.setOnClickListener(
                 (v) -> {
-                    Intent i = new Intent(this, PingActivity.class);
-                    startActivity(i);
+
+                    if(!(IPnumber1.getText().toString().isEmpty() || IPnumber2.getText().toString().isEmpty() || IPnumber3.getText().toString().isEmpty() || IPnumber4.getText().toString().isEmpty())){
+
+                        String searchedIP = IPnumber1.getText().toString() + "." + IPnumber2.getText().toString()+ "." + IPnumber3.getText().toString()+ "." + IPnumber4.getText().toString();
+
+                        Intent i = new Intent(this, PingActivity.class);
+
+                        i.putExtra("searchedIP", searchedIP);
+
+                        startActivity(i);
+                    }
+                    else{
+                        Toast.makeText(this, "Hay espacios vacios", Toast.LENGTH_SHORT).show();
+                    }
                 }
         );
     }
